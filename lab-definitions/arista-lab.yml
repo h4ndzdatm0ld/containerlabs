@@ -1,0 +1,25 @@
+# docker-compose run clab containerlab deploy -t arista-clab.yml
+---
+name: "arista-clab"
+mgmt:
+  network: "arista-net"
+  ipv4_subnet: "172.20.101.0/24" # ipv4 range
+  ipv6_subnet: "2001:172:100:101::/80" # ipv6 range (optional)
+
+topology:
+  kinds:
+    ceos:
+      image: "h4ndzdatm0ld/ceosimage:4.28.0F"
+      binds:
+        - mymapping.json:/mnt/flash/EosIntfMapping.json:ro
+  nodes:
+    ceos1:
+      kind: ceos
+      mgmt_ipv4: 172.20.101.11
+      mgmt_ipv6: 2001:172:100:101::11
+    ceos2:
+      kind: ceos
+      mgmt_ipv4: 172.20.101.12
+      mgmt_ipv6: 2001:172:100:101::12
+  links:
+    - endpoints: ["ceos1:eth1", "ceos2:eth1"]

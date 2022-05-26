@@ -1,0 +1,10 @@
+# Git Ignore
+
+# Licenses
+license.txt
+*license*
+license*
+
+# Lab Topologies Backups
+clab-*
+lab-definitions/.*

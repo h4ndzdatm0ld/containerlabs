@@ -1,0 +1,43 @@
+name: 4x-sros.yml
+
+mgmt:
+  network: containerlab-mgmt # management network name
+  ipv4_subnet: 172.100.210.0/24 # ipv4 range
+  ipv6_subnet: 2001:172:100:210::/80 # ipv6 range (optional)
+
+topology:
+  nodes:
+    sros-r1:
+      kind: vr-sros
+      mgmt_ipv4: 172.100.210.10
+      mgmt_ipv6: 2001:172:100:210::10
+      image: h4ndzdatm0ld/sros:21.2.R1
+      type: sr-1
+    sros-r2:
+      mgmt_ipv4: 172.100.210.20
+      mgmt_ipv6: 2001:172:100:210::20
+      kind: vr-sros
+      image: h4ndzdatm0ld/sros:21.2.R1
+      type: sr-1
+    sros-r3:
+      mgmt_ipv4: 172.100.210.30
+      mgmt_ipv6: 2001:172:100:210::30
+      kind: vr-sros
+      image: h4ndzdatm0ld/sros:21.2.R1
+      type: sr-1
+    sros-r4:
+      mgmt_ipv4: 172.100.210.40
+      mgmt_ipv6: 2001:172:100:210::40
+      kind: vr-sros
+      image: h4ndzdatm0ld/sros:21.2.R1
+      type: sr-1
+
+  links:
+    # SR1 <> SR2
+    - endpoints: ["sros-r1:eth1", "sros-r2:eth1"]
+    # SR1 <> SR3
+    - endpoints: ["sros-r1:eth2", "sros-r3:eth1"]
+    # # SR3 <> SR4
+    - endpoints: ["sros-r3:eth2", "sros-r4:eth1"]
+    # # SR4 <> SR2
+    - endpoints: ["sros-r4:eth2", "sros-r2:eth2"]

@@ -1,0 +1,13 @@
+name: xrv9k-lab
+
+topology:
+  nodes:
+    xrv-1:
+      kind: vr-xrv
+      image: h4ndzdatm0ld/vr-xrv9k:7.2.1 # clab/clab@123
+    xrv-2:
+      kind: vr-xrv
+      image: h4ndzdatm0ld/vr-xrv9k:7.2.1 # clab/clab@123
+
+  links:
+    - endpoints: ["xrv-1:eth1", "xrv-2:eth1"]
