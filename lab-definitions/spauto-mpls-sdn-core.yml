@@ -11,7 +11,10 @@ topology:
   kinds:
     vr-xrv: # clab/clab@123
       image: "h4ndzdatm0ld/vr-xrv:6.1.3"
-
+    ceos:
+      image: "h4ndzdatm0ld/ceosimage:4.28.0F"
+      binds:
+        - mymapping.json:/mnt/flash/EosIntfMapping.json:ro
   nodes:
     xrv-pe1:
       kind: "vr-xrv"
@@ -47,7 +50,8 @@ topology:
       mgmt_ipv6: 2001:172:100:100::202
     ceos2:
       kind: ceos
-      image: "h4ndzdatm0ld/ceosimage:4.26.2"
+      mgmt_ipv4: 172.20.100.100
+      mgmt_ipv6: 2001:172:100:100::100
 
   links:
     # PE1 <> P1
