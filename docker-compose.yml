@@ -1,16 +1,16 @@
 # docker-compose run clab -d deploy -t lab-definitions/some/lab/definition.yml
 version: "3.8"
 services:
-    clab:
-      image: "ghcr.io/srl-labs/clab"
-      network_mode: host
-      working_dir: "/src/"
-      volumes:
-          - '/var/run/docker.sock:/var/run/docker.sock'
-          - '/var/run/netns:/var/run/netns'
-          - '/etc/hosts:/etc/hosts'
-          - './:/src/'
-      pid: "host"
-      command: "containerlab deploy -t lab-definitions/4x-sros.yml"
-      privileged: true
-      tty: true
+  clab:
+    image: "ghcr.io/srl-labs/clab"
+    network_mode: host
+    working_dir: "/src/"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/run/netns:/var/run/netns"
+      - "/etc/hosts:/etc/hosts"
+      - "./:/src/"
+    pid: "host"
+    command: "containerlab deploy -t lab-definitions/spauto-mpls-sdn-core.yml"
+    privileged: true
+    tty: true
