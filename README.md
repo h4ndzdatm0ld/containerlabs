@@ -6,11 +6,11 @@ A working installation of Docker and Docker-Compose
 
 ## Nested Virtualization
 
-Qemu based nodes that have been containerized with `vrnetlab` for `Containerlab`, which require the ability to run nested virtualization.
+Qemu-based nodes that have been containerized with `vrnetlab` for `Containerlab`, require the ability to run nested virtualization.
 
 ## Lab Definitions
 
-The collection of topology definitions will be mounted into the `clab` container. Currently it's defaulted to run a specific lab topology, but it's simple to override the command and define a new topology.
+The collection of topology definitions will be mounted into the `clab` container. Currently, it's defaulted to run a specific lab topology, but it's simple to override the command and define a new topology.
 
 ## Running Labs
 
@@ -22,7 +22,7 @@ Using Docker-Compose override the `command` and bring up a custom lab of your ch
 docker-compose run clab containerlab deploy -t lab-definitions/xrv9k-sros.yml
 ```
 
-Currently the default lab of `4x-sros.yml` is defaulted inside of the `clab` service
+Currently, the default lab of `4x-sros.yml` is defaulted inside of the `clab` service
 
 ```bash
 docker-compose run clab
@@ -78,7 +78,7 @@ To gracefully destroy labs use the `destroy` command
 docker-compose run clab containerlab destroy -t lab-definitions/xrv9k-sros.yml
 ```
 
-```bash
+````bash
 ➜  container-lab-sra git:(main) ✗ docker-compose run clab containerlab destroy -t lab-definitions/xrv9k-sros.yaml
 Creating container-lab-sra_clab_run ... done
 INFO[0000] Parsing & checking topology file: xrv9k-sros-lab.yaml
@@ -87,3 +87,4 @@ INFO[0000] Removed container: clab-xrv9k-lab-xrv-1
 INFO[0001] Removed container: clab-xrv9k-lab-xrv-2
 INFO[0001] Removing containerlab host entries from /etc/hosts file
 ```# containerlabs
+````

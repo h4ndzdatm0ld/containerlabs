@@ -2,8 +2,8 @@
 version: "3.8"
 services:
   clab:
-    image: "ghcr.io/srl-labs/clab"
-    network_mode: host
+    image: "ghcr.io/srl-labs/clab:latest"
+    network_mode: "host"
     working_dir: "/src/"
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
@@ -11,6 +11,6 @@ services:
       - "/etc/hosts:/etc/hosts"
       - "./:/src/"
     pid: "host"
-    command: "containerlab deploy -t lab-definitions/spauto-mpls-sdn-core.yml"
+    command: "containerlab deploy -t lab-definitions/routeros-4x.yml"
     privileged: true
     tty: true
