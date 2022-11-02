@@ -11,6 +11,6 @@ services:
       - "/etc/hosts:/etc/hosts"
       - "./:/src/"
     pid: "host"
-    command: "containerlab deploy -t lab-definitions/routeros-4x.yml"
+    command: "containerlab deploy -t lab-definitions/lab-01.yml"
     privileged: true
     tty: true

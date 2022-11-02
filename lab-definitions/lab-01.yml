@@ -1,0 +1,31 @@
+name: "lab-01"
+mgmt:
+  network: "containerlab-mgmt" # management network name
+  ipv4_subnet: "172.200.210.0/24" # ipv4 range
+  ipv6_subnet: "2001:172:200:210::/80" # ipv6 range (optional)
+topology:
+  defaults:
+  kinds:
+    ceos:
+      image: "h4ndzdatm0ld/ceosimage:4.28.0F"
+      binds:
+        - "mymapping.json:/mnt/flash/EosIntfMapping.json:ro"
+    srl:
+      image: "ghcr.io/nokia/srlinux:latest"
+  nodes:
+    ceos1:
+      kind: "ceos"
+      mgmt_ipv4: "172.200.210.11"
+      mgmt_ipv6: "2001:172:200:210::11"
+    ceos2:
+      kind: "ceos"
+      mgmt_ipv4: "172.200.210.13"
+      mgmt_ipv6: "2001:172:200:210::13"
+    srl1:
+      kind: "srl"
+      mgmt_ipv4: "172.200.210.12"
+      mgmt_ipv6: "2001:172:200:210::12"
+      startup-config: "lab-configs/lab-01-srl1.cli"
+  links:
+    - endpoints: ["ceos1:eth1", "srl1:e1-1"]
+    - endpoints: ["ceos2:eth1", "srl1:e1-2"]
