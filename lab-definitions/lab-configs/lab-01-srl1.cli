@@ -6,14 +6,14 @@ set / interface ethernet-1/1
 set / interface ethernet-1/1 description "TO_CEOS1"
 set / interface ethernet-1/1 subinterface 0
 set / interface ethernet-1/1 subinterface 0 ipv4
-set / interface ethernet-1/1 subinterface 0 ipv4 address 192.168.1.0/31
+set / interface ethernet-1/1 subinterface 0 ipv4 address 192.168.1.0/32
 set / interface ethernet-1/1 subinterface 0 ipv6
 set / interface ethernet-1/1 subinterface 0 ipv6 address 2002::192.168.1.0/127
 set / interface ethernet-1/2
 set / interface ethernet-1/2 description "TO_CEOS2"
 set / interface ethernet-1/2 subinterface 0
 set / interface ethernet-1/2 subinterface 0 ipv4
-set / interface ethernet-1/2 subinterface 0 ipv4 address 192.168.1.2/31
+set / interface ethernet-1/2 subinterface 0 ipv4 address 192.168.1.2/32
 set / interface ethernet-1/2 subinterface 0 ipv6
 set / interface ethernet-1/2 subinterface 0 ipv6 address 2002::192.168.1.2/127
 set / network-instance default
