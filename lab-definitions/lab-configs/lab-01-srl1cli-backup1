@@ -3,12 +3,9 @@ set / interface ethernet-1/1 description "TO_CEOS1"
 set / interface ethernet-1/1 subinterface 0
 set / interface ethernet-1/1 subinterface 0 ipv4
 set / interface ethernet-1/1 subinterface 0 ipv4 address 192.168.1.0/31
+set / interface lo0 subinterface 0 ipv4 address 10.10.10.1/32
 set / interface ethernet-1/1 subinterface 0 ipv6
 set / interface ethernet-1/1 subinterface 0 ipv6 address 2002::192.168.1.0/127
-set / interface lo0 description "Loopback0 IP"
-set / interface lo0 subinterface 0
-set / interface lo0 subinterface 0 ipv4
-set / interface lo0 subinterface 0 ipv4 address 10.10.10.1/32
 set / interface ethernet-1/2
 set / interface ethernet-1/2 description "TO_CEOS2"
 set / interface ethernet-1/2 subinterface 0
