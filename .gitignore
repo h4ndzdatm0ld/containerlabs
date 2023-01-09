@@ -6,5 +6,5 @@ license.txt
 license*
 
 # Lab Topologies Backups
-clab-*
-lab-definitions/.*
+# clab-*
+# lab-definitions/.*
