@@ -1,0 +1,16 @@
+---
+name: "2x-csr"
+
+topology:
+  nodes:
+    csr-r1:
+      kind: "vr-csr"
+      image: "h4ndzdatm0ld/vr-csr:17.03.02"
+    csr-r2:
+      kind: "vr-csr"
+      image: "h4ndzdatm0ld/vr-csr:17.03.02"
+      env:
+        BOOT_DELAY: 30
+
+  links:
+    - endpoints: ["csr-r1:eth1", "csr-r2:eth1"]

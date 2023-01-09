@@ -1,8 +1,8 @@
 ---
-name: "routeros-4x"
+name: "routeros-4x-clab"
 mgmt:
   network: "routeros-clab"
-  ipv4_subnet: "10.1.15.0/29"
+  ipv4_subnet: "10.100.15.0/24"
 topology:
   kinds:
     vr-ros:
@@ -10,16 +10,16 @@ topology:
   nodes:
     R1:
       kind: "vr-ros"
-      mgmt_ipv4: "10.1.15.2"
+      mgmt_ipv4: "10.100.15.2"
     R2:
       kind: "vr-ros"
-      mgmt_ipv4: "10.1.15.3"
+      mgmt_ipv4: "10.100.15.3"
     R3:
       kind: "vr-ros"
-      mgmt_ipv4: "10.1.15.4"
+      mgmt_ipv4: "10.100.15.4"
     R4:
       kind: "vr-ros"
-      mgmt_ipv4: "10.1.15.5"
+      mgmt_ipv4: "10.100.15.5"
 
   links:
     - endpoints: ["R1:eth1", "R2:eth1"]
