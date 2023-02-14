@@ -1,4 +1,4 @@
-name: "lab-01"
+name: "lab-03"
 mgmt:
   network: "containerlab-mgmt" # management network name
   ipv4_subnet: "172.200.210.0/24" # ipv4 range
